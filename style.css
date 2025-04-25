@@ -50,6 +50,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    transition: all 0.3s ease;
 }
 
 .nav-links a {
@@ -482,35 +483,124 @@ footer {
     animation: slideIn 0.6s ease forwards;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .profile-container {
-        flex: none;
-    }
-
+/* Mobile Responsive Design */
+@media screen and (max-width: 1024px) {
     .hero-content {
         flex-direction: column;
         text-align: center;
+        gap: 2rem;
     }
-
+    
+    .profile-container {
+        margin: 0 auto;
+    }
+    
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+    
     .hero-text h1 {
         font-size: 2.5rem;
     }
+    
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
 
+@media screen and (max-width: 768px) {
+    .nav-content {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-links.active {
+        display: flex;
+        animation: slideDown 0.3s ease;
+    }
+    
+    .hero-content {
+        padding: 2rem 1rem;
+    }
+    
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+    
     .bio-card {
         width: 90%;
-        left: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
+}
 
-    .bio-section {
-        margin-bottom: 1.5rem;
+@media screen and (max-width: 480px) {
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .profile-image {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .info-btn {
+        padding: 8px 15px;
+    }
+}
+
+/* Add smooth transitions for mobile menu */
+.nav-links {
+    transition: all 0.3s ease;
+}
+
+.hamburger span {
+    transition: all 0.3s ease;
+}
+
+.nav-links.active {
+    display: flex;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
